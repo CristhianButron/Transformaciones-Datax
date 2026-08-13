@@ -63,4 +63,34 @@ select
 
 from con_catalogo
 group by departamento, tipo_compania, modalidad, ramo, compania, anio, mes_num, fecha
-order by anio, mes_num, departamento, compania, ramo
+-- Orden calcado del CSV real: Año, Mes, Compañía (Tipo Compañia agrupa junto
+-- con ella, "Generales y Fianzas" ordena antes que "Personas" alfabéticamente
+-- así que no hace falta un orden custom aparte), Tipo Seguro, Ramo,
+-- Departamento — dentro de cada compañía+ramo el CSV real NO ordena
+-- Departamento alfabéticamente, usa un orden fijo propio (confirmado
+-- comparando bloques reales de 158_datos_P.csv): La Paz, Cochabamba, Santa
+-- Cruz, Oruro, Potosí, Pando, Beni, Chuquisaca, Tarija.
+-- ⚠ Tipo Seguro y Ramo quedaron en orden alfabético (no pude confirmar un
+-- orden fijo propio para esos dos con la evidencia disponible — si el CSV
+-- real también los ordena distinto, lo más probable es que haga falta un
+-- catálogo "orden Tipo Seguro" / "orden Ramo" tipo T16, como el que ya usan
+-- otros cubos del Diccionario, ej. SPIM_0170_PSCS).
+order by
+    anio,
+    mes_num,
+    tipo_compania,
+    compania,
+    modalidad,
+    ramo,
+    case departamento
+        when 'La Paz' then 1
+        when 'Cochabamba' then 2
+        when 'Santa Cruz' then 3
+        when 'Oruro' then 4
+        when 'Potosí' then 5
+        when 'Pando' then 6
+        when 'Beni' then 7
+        when 'Chuquisaca' then 8
+        when 'Tarija' then 9
+        else 10
+    end
