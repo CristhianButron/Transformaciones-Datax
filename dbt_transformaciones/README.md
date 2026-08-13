@@ -91,12 +91,63 @@ Siniestros combinados en la misma fila). Esto prueba que el motor genérico
 reproduce la misma lógica de negocio que la versión hardcodeada, sin haber
 reescrito esa lógica.
 
-❌ Todavía NO se corrió contra el volumen real completo de las 18 tablas del
-cubo 158 (eso sigue pendiente, igual que en la versión anterior — ver los
-puntos de verificación que ya estaban documentados en `ejemplo1`, siguen
-aplicando: huecos en la serie mensual, catálogo de compañía no universal,
-T2 no aplicado en este cubo en particular, nombre de mes en letras si el
-CSV final lo pide, filas con valor NULL).
+### Segunda vuelta: comparación contra el CSV real (`158_datos_P.csv`)
+
+El usuario corrió este mismo pipeline contra la base real y mandó dos CSV:
+el resultado real esperado (`158_datos_P.csv`, formato del CSV 158 oficial)
+y lo que efectivamente devolvió `resultado_158` en esa corrida. Comparar
+ambos (162.866 filas vs 18.873) permitió encontrar y corregir:
+
+1. **Faltaba el catálogo de Ramo (T9)** — el ramo se pasaba tal cual venía
+   de la fuente, pero el CSV oficial usa nombres distintos ("Incendio" →
+   "Incendio y Aliados", "Fidelidad de Empleados" → "Fidelidad de
+   empleado", etc.). Se agregó `seeds/catalogos/cat_ramo_aps_158.csv`
+   (35 equivalencias) armado comparando los valores de ambos CSV por
+   coincidencia de nombre — **no** verificado fila a fila contra la fuente
+   cruda, como pide T9. Quedan 2 ramos vistos en el CSV real sin mapear a
+   propósito, por falta de evidencia suficiente para decidir la
+   equivalencia (ver el comentario en `stg_cubo_158.sql`).
+2. **Faltaba "Tipo Compañia de Seguros" (T16)** — no existía en ningún
+   archivo fuente, se obtiene de un catálogo por compañía (Generales y
+   Fianzas / Personas). Se agregó como columna nueva a
+   `cat_compania_aps_158.csv` en vez de crear un catálogo aparte, porque
+   depende 1 a 1 de la misma compañía. Hay 4 compañías vistas en el CSV
+   real (24S, LAT, PRO, ZUR) que no estaban en los datos usados para armar
+   el catálogo original — no se adivinó su código crudo (nv2), así que hoy
+   estas 4 quedan sin clasificar hasta confirmarlo.
+3. **Nombres y orden de columnas** — `resultado_158` ahora usa exactamente
+   los mismos encabezados que `158_datos_P.csv` (`Año`, `Mes`, `Departamento`,
+   `Tipo Compañia de Seguros`, `Compañia de Seguros`, `Tipo Seguro`, `Ramo`,
+   `Producción US$`, `Producción Bs`, `Siniestros US$`, `Siniestros Bs`) en
+   vez de los nombres internos de trabajo. `Mes` ahora es el nombre en
+   letras (T7), no el número.
+
+Se volvió a correr `dbt seed` + `dbt run` contra Postgres real agregando
+un segundo par de filas sintéticas (compañía `NAL-G`, modalidad "Servicios
+de Prepago", ramo "Fidelidad de Empleados") para probar el catálogo de
+ramo y el rename de modalidad al mismo tiempo que T6/T4/T9 ya probados.
+Resultado exacto esperado en los 5 casos (ver commit).
+
+⚠ **Dos cosas que NO se tocaron, a propósito, y quedan pendientes de que el
+usuario las revise:**
+
+- **Rango de fechas.** `158_datos_P.csv` tiene datos 2010–2026; la corrida
+  real de `resultado_158` solo cubrió 2024-10 a 2026-05 (18 tablas fuente
+  actuales). Es casi seguro que, igual que en el cubo de ADUANA
+  (documentado en T3 del Diccionario), la base real solo tiene cargada una
+  ventana reciente en esas 18 tablas, y el histórico completo necesita
+  concatenar más extracciones/vintages — no es algo que se arregle en el
+  SQL sin saber qué tablas históricas existen. Confirmar con el usuario
+  antes de asumir cualquier solución.
+- **Valores de "acumulado" que bajan de un mes a otro (T6).** Se detectaron
+  183 de 18.873 filas (~1%) donde el valor mensual desacumulado da
+  negativo — la mayoría porque enero (primer mes del ciclo) vino negativo
+  tal cual en la fuente, y una minoría porque el acumulado bajó de un mes
+  al siguiente. El Diccionario ya documenta casos así como anomalías reales
+  puntuales en otros cubos (no un bug del cálculo) — no se "corrigió"
+  forzando el valor a 0 porque eso podría estar ocultando una revisión de
+  cifras real. Si el usuario confirma que debe tratarse distinto, ajustar
+  `t6_desacumular` o agregar un `t10_filtro_filas_validas` en ese punto.
 
 ## Cómo agregar un cubo nuevo
 
