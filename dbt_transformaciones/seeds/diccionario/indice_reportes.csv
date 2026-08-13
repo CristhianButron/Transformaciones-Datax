@@ -1,0 +1,87 @@
+Nro,Codigo Spim,Report,Report_code,Transformaciones,csv-salida
+1,S_BOAPS_44_000620,Producción Directa Neta de Anulaciones por Entidad Aseguradora La Paz,D_BO_000000447_01,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+2,S_BOAPS_44_000620,Producción Directa Neta de Anulaciones por Entidad Aseguradora Cochabamba,D_BO_000000447_02,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+3,S_BOAPS_44_000620,Producción Directa Neta de Anulaciones por Entidad Aseguradora Santa Cruz,D_BO_000000447_03,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+4,S_BOAPS_44_000620,Producción Directa Neta de Anulaciones por Entidad Aseguradora Oruro,D_BO_000000447_04,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+5,S_BOAPS_44_000620,Producción Directa Neta de Anulaciones por Entidad Aseguradora Potosi,D_BO_000000447_05,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+6,S_BOAPS_44_000620,Producción Directa Neta de Anulaciones por Entidad Aseguradora Tarija,D_BO_000000447_06,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+7,S_BOAPS_44_000620,Producción Directa Neta de Anulaciones por Entidad Aseguradora Chuquisaca,D_BO_000000447_07,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+8,S_BOAPS_44_000620,Producción Directa Neta de Anulaciones por Entidad Aseguradora Pando,D_BO_000000447_08,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+9,S_BOAPS_44_000620,Producción Directa Neta de Anulaciones por Entidad Aseguradora Beni,D_BO_000000447_09,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+10,S_BOAPS_44_000620,Siniestros Directos por Entidad Aseguradora La Paz,D_BO_000000447_10,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+11,S_BOAPS_44_000620,Siniestros Directos por Entidad Aseguradora Cochabamba,D_BO_000000447_11,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+12,S_BOAPS_44_000620,Siniestros Directos por Entidad Aseguradora Santa Cruz,D_BO_000000447_12,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+13,S_BOAPS_44_000620,Siniestros Directos por Entidad Aseguradora Oruro,D_BO_000000447_13,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+14,S_BOAPS_44_000620,Siniestros Directos por Entidad Aseguradora Potosi,D_BO_000000447_14,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+15,S_BOAPS_44_000620,Siniestros Directos por Entidad Aseguradora Tarija,D_BO_000000447_15,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+16,S_BOAPS_44_000620,Siniestros Directos por Entidad Aseguradora Chuquisaca,D_BO_000000447_16,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+17,S_BOAPS_44_000620,Siniestros Directos por Entidad Aseguradora Pando,D_BO_000000447_17,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+18,S_BOAPS_44_000620,Siniestros Directos por Entidad Aseguradora Beni,D_BO_000000447_18,"T1, T2, T3, T4, T6, T7, T8, T9, T10, T11",\\10.0.0.11\CSV\158
+19,S_BOAPS_44_000621,Intermediación de Corredores de Reaseguro - Conesa Kieffer & Asociados Corredores de Reaseguros S.A.,D_BO_000000447_19,"T1, T3, T4, T7, T8, T9, T10, T12",\\10.0.0.11\CSV\253
+20,S_BOAPS_44_000621,Intermediación de Corredores de Reaseguro - Iberam Re Corredores Internacionales de Reaseguros S.A,D_BO_000000447_20,"T1, T3, T4, T7, T8, T9, T10, T12",\\10.0.0.11\CSV\253
+21,S_BOAPS_44_000621,Intermediación de Corredores de Reaseguro - Olsa Bolivia Corredores de Reaseguros S.A.,D_BO_000000447_21,"T1, T3, T4, T7, T8, T9, T10, T12",\\10.0.0.11\CSV\253
+22,S_BOAPS_44_000621,"Intermediación de Corredores de Reaseguro - Universal Brokers Re S.A. Corredores de Reaseguros ""Unibrosa Re""",D_BO_000000447_22,"T1, T3, T4, T7, T8, T9, T10, T12",\\10.0.0.11\CSV\253
+23,S_BOAPS_44_000621,"Intermediación de Corredores de Reaseguro - Risk Reinsurance Broker S.A. ""Risk Re S.A""",D_BO_000000447_23,"T1, T3, T4, T7, T8, T9, T10, T12",\\10.0.0.11\CSV\253
+24,S_BOAPS_44_000621,Intermediación de Corredores de Reaseguro - Krings Reinsurance Brokers S.A.,D_BO_000000447_24,"T1, T3, T4, T7, T8, T9, T10, T12",\\10.0.0.11\CSV\253
+25,S_BOSPVS46_000251,Producción y Siniestros por Modalidad y Ramo,D_BO_000000447_25,"T1, T4, T7, T8, T9, T10, T12, T13",\\10.0.0.11\CSV\207
+26,S_BOSPVS66_000253,Producción Directa Neta de Anulaciones por Modalidad y Ramo,D_BO_000000447_26,"T1, T3, T4, T7, T8, T9, T10, T11, T12",\\10.0.0.11\CSV\182
+27,S_BOSPVS66_000253,Siniestros Directos por Modalidad y Ramo,D_BO_000000447_27,"T1, T3, T4, T7, T8, T9, T10, T11, T12",\\10.0.0.11\CSV\182
+28,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Alianza Compañía de Seguros y Reaseguros S.A.,D_BO_000000447_28,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+29,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Alianza Vida Seguros y Reaseguros S.A.,D_BO_000000447_29,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+30,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Bisa Seguros y Reaseguros S.A.,D_BO_000000447_30,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+32,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Compañía de Seguros de Vida Fortaleza S.A.,D_BO_000000447_32,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+33,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Compañía de Seguros y Reaseguros Fortaleza S.A.,D_BO_000000447_33,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+34,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Crediseguro S.A. Seguros Generales,D_BO_000000447_34,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+35,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Crediseguro S.A. Seguros Personales,D_BO_000000447_35,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+36,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo La Boliviana Ciacruz de Seguros y Reaseguros S.A.,D_BO_000000447_36,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+37,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo La Boliviana Ciacruz Seguros Personales S.A.,D_BO_000000447_37,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+38,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo La Vitalicia Seguros y Reaseguros de Vida S.A.,D_BO_000000447_38,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+39,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Mercantil Santa Cruz Seguros y Reaseguros Generales S.A.,D_BO_000000447_39,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+40,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Nacional Seguros Patrimoniales y Fianzas S.A.,D_BO_000000447_40,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+41,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Nacional Seguros Vida y Salud S.A.,D_BO_000000447_41,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+42,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Santa Cruz Vida y Salud Seguros y Reaseguros Personales S.A.,D_BO_000000447_42,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+43,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Seguros Illimani S.A.,D_BO_000000447_43,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+44,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Seguros y Reaseguros Credinform International S.A.,D_BO_000000447_44,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+45,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Seguros y Reaseguros Personales Univida S.A.,D_BO_000000447_45,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+46,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Unibienes Seguros y Reaseguros Patrimoniales S.A.,D_BO_000000447_46,"T1, T4, T7, T8, T9, T10, T12, T14",\\10.0.0.11\CSV\205
+31,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo Bupa Insurance (Bolivia) S.A.,D_BO_000000447_31,"T1, T4, T7, T8, T9, T10, T12, T14 (mismo patrón que el resto del grupo, sin verificar aún)",Pendiente: no se recibió el archivo aplanado de este reporte
+48,S_BOFINR44_000435,"Tasas de Interés según Moneda y Tipo de Crédito - IFD (Cuadro Nº 12A, Bolivianos)",D_BO_000000280_07,"T2, T3, T5, T7, T9, T10",\\10.0.0.11\CSV\348
+49,S_BOFINR44_000435,"Tasas de Interés según Moneda y Tipo de Crédito - IFD (Cuadro Nº 12B, Dólares)",D_BO_000000280_08,"T2, T3, T5, T7, T9, T10",\\10.0.0.11\CSV\348
+50,S_BOFINR44_00387,Indicadores Financieros - IFD,D_BO_000000280_09,"T3, T7, T9, T10, T16",\\10.0.0.11\CSV\247
+51,S_BOFINR44_00388,Calificación de Cartera por Institución - IFD,D_BO_000000280_10,"T3, T4, T7, T9, T10, T12",\\10.0.0.11\CSV\190
+52,S_BOFINR44_00389,Distribución de Cartera por Tipo de Crédito - IFD,D_BO_000000280_11,"T1, T3, T4, T7, T9, T10, T12",\\10.0.0.11\CSV\223
+53,SPIM_15001_ECI,Estado de Cartera por Institución y Zona - IFD,D_BO_000000280_12,"T3, T4, T7, T9, T10, T16",\\10.0.0.11\CSV\167
+54,SPIM_15002_NCI,Número de Clientes por Institución y Departamento - IFD 01,D_BO_000000280_13,"T3, T7, T9, T10, T16",\\10.0.0.11\CSV\166
+55,SPIM_15003_ECD,Estado de Cartera por Departamentos y Zonas - IFD,D_BO_000000280_14,"T3, T4, T7, T9, T10, T12",\\10.0.0.11\CSV\210
+56,SPIM_15004_NCD,Número de Clientes por Institución y Departamento - IFD 02,D_BO_000000280_15,"T3, T7, T8, T9, T10",\\10.0.0.11\CSV\168
+57,S_BOSPVS66_000260,Intermediación de Corredores de Seguros por Entidad Aseguradora,D_BO_000000447_47,"T3, T4, T7, T8, T9, T10, T12",\\10.0.0.11\CSV\189
+58,S_BOSPVS66_000261,Intermediación de Corredores de Seguros por Modalidad y Ramo (Fianzas y Personas),D_BO_000000447_48,"T3, T4, T7, T8, T9, T10, T12",\\10.0.0.11\CSV\186
+59,S_BOSPVS66_000261,"Intermediación de Corredores de Seguros por Modalidad y Ramo (Generales, Obligatorios, Prepago)",D_BO_000000447_49,"T3, T4, T7, T8, T9, T10, T12",\\10.0.0.11\CSV\186
+60,SPIM_0170_PSCS,Producción y Siniestros por Tipo de Seguros y Compañía (Generales y Fianzas),D_BO_000000447_51,"T3, T4, T7, T9, T10, T12, T16",\\10.0.0.11\CSV\169
+61,SPIM_0170_PSCS,Producción y Siniestros por Tipo de Seguros y Compañía (Personas),D_BO_000000447_52,"T3, T4, T7, T9, T10, T12, T16",\\10.0.0.11\CSV\169
+62,SPIM_0201_BGCSGF,Balance General Entidades de Seguros Generales y Fianzas,D_BO_000000447_53,"T3, T4, T7, T8, T9, T10, T12",\\10.0.0.11\CSV\172
+63,SPIM_0202_ERCSGF,Estado de Resultados Entidades de Seguros Generales y Fianzas,D_BO_000000447_54,"T3, T4, T7, T8, T9, T10, T12, T16",\\10.0.0.11\CSV\185
+64,SPIM_0203_BGCSP,Balance General Entidades de Seguros de Personas,D_BO_000000447_55,"T3, T4, T7, T8, T9, T10, T12",\\10.0.0.11\CSV\206
+65,SPIM_0204_ERCSP,Estado de Resultados Entidades de Seguros de Personas,D_BO_000000447_56,"T3, T4, T7, T8, T9, T10, T12, T16",\\10.0.0.11\CSV\203
+Nota:,,,,,
+"Nota T5 (actualizada): identificada por primera vez al procesar S_BOFINR44_000435 (348_datos_P.csv). ""Tasa Prom.%"" no viene en la fuente: se calcula como el promedio de ""Tasa Menor%"" y ""Tasa Mayor%"" (si solo hay uno de los dos disponibles, ""Tasa Prom.%"" toma ese único valor).",,,,,
+Nota T12:,,,,,
+T12 se agregó tras procesar el cubo de Corredores de Reaseguro (S_BOAPS_44_000621): el mismo formato de texto con punto de miles requiere una escala distinta (x1000 o x1) según la unidad que declara cada reporte.,,,,,
+Nota T13:,,,,,
+"T13 se agregó tras procesar 447_25 (S_BOSPVS46_000251 -> 207_datos_P.csv): reparte 3 de los 10 ""hechos"" de origen (Directo/Aceptado/Cedido) en una columna ""Componente"", descarta los totales derivados, e invierte el signo de ""Reaseguro Cedido"".",,,,,
+Nota T14:,,,,,
+"T14 se agregó tras procesar 447_28 a 447_46 (S_BOSPVS66_000254 -> 205_datos_P.csv): de los mismos 10 ""hechos"" de origen, se selecciona únicamente ""Producción Neta Retenida"" / ""Siniestros Neto Retenido"" y se descartan los otros 8 (incluido el Directo, el Aceptado y el Cedido que sí usa T13).",,,,,
+⚠ Anomalía detectada:,,,,,
+"La compañía ""Nacional Seguros Vida y Salud S.A."" aparece con el código ""NAL-V"" en 182_datos_P.csv y con el código ""NAL-P"" en 205_datos_P.csv, para el mismo mes (abril 2026) y la misma compañía. Es una inconsistencia real entre los dos CSV finales, no una regla que se pueda resolver por número — hay que decidir con el equipo cuál código es el correcto antes de estandarizar. Además, 205_datos_P.csv trae un error de encabezado: la columna de Ramo aparece nombrada literalmente ""Tipo de Seguro]"" (con corchete), duplicando el nombre de la columna anterior ""Tipo de Seguro"".",,,,,
+"⚠ Anomalía detectada (FINRURAL, S_BOFINR44_000435):",,,,,
+"En el Excel fuente de CIDRE (D_BO_000000280_07, Bolivianos), la categoría ""Microcredito Agropecuario"" aparece dos veces con valores distintos (10.00%/17.00% y 11.50%/11.50%) sin ningún campo que las distinga. El 348_datos_P.csv sí las separa: una queda como ""Microcrédito Agropecuario"" (11.50/11.50) y la otra se renombra a ""Crédito Empresarial Agropecuario"" (10.00/17.00), un tipo de crédito inexistente en el archivo fuente para esa institución. Se repite igual en Enero, Febrero y Marzo 2026. No replicar el criterio de asignación (orden de aparición) sin confirmar con el equipo / el PDF original de CIDRE.",,,,,
+Nota T16:,,,,,
+"T16 se agregó tras procesar S_BOFINR44_00387 (247_datos_P.csv): las columnas ""orden Indicador Nv1"" y ""orden Indicador Nv2"" no existen en ningún Excel fuente — se obtienen de un catálogo de negocio que asigna un número de secuencia fijo a cada categoría/indicador (14 categorías Nv1, hasta 6 indicadores Nv2 por categoría). El mismo catálogo también decide, para el grupo fuente ""Eficiencia Administrativa"", en cuál de 4 categorías Nv1 destino cae cada indicador (según su nv2 de origen: ""Ratios de Eficiencia"" y ""Estructura de Gastos de Administración"" quedan como sub-categorías de ""Eficiencia Administrativa"", mientras que ""Cálculo Spread Efectivo"" y ""Utilización del Spread Efectivo"" se vuelven categorías Nv1 propias).",,,,,
+"⚠ Anomalía detectada (FINRURAL, S_BOFINR44_00387):",,,,,
+"En Febrero 2026, 3 celdas del CSV final (247_datos_P.csv) muestran 0.00% cuando el Excel fuente trae un valor real distinto de cero: CRECER ""Int. Penales Cartera Vencida Total y en Ejecución Total / Productos..."" (fuente=5.94%, final=0.00%), PROMUJER mismo indicador (fuente=0.18%, final=0.00%), y CRECER ""Ingreso Financiero Promedio en Activos Productivos Neto de Contingente (6)"" dentro de Cálculo Spread Efectivo (fuente=18.92%, final=0.00%). Verificado contra los otros 3 meses recibidos (Enero, Marzo, Abril 2026): no se repite, es exclusivo de Febrero. Reportar, no replicar. Adicionalmente (no es error, es un dato de forma consistente en todo el histórico): dentro de ""CÁLCULO SPREAD EFECTIVO"", dos etiquetas de Indicador Nv2 llegan truncadas/con espacio perdido: ""Margen Financiero en Activos ProductivosPromedio Neto de Conting"" y ""Ingreso Financiero Promedio en Activos Productivos Neto de Conti"" (el nombre completo en la fuente es más largo).",,,,,
+"⚠ Anomalía detectada (FINRURAL, SPIM_15004_NCD):",,,,,
+"El CSV final (168_datos_P.csv) trae una categoría de 'Género'='Empresa' para las 54 combinaciones posibles de Departamento×Área×Mes (Ene-Mar 2026), pero con 'Cantidad' vacía (NaN) en el 100% de los casos. El Excel fuente solo trae 'Hombres'/'Mujeres'/'Total Clientes' — no existe ninguna categoría 'Empresa'. Parece un artefacto estructural (catálogo fijo de Género de 3 valores que este reporte en particular nunca llena para la tercera opción), no un error de una fila puntual. No replicar la fila 'Empresa' al reconstruir este cubo salvo que el equipo confirme que debe existir vacía por diseño.",,,,,
+"⚠ Anomalía puntual (APS, SPIM_0170_PSCS):",,,,,
+"Enero 2026: 'Nacional Seguros Vida y Salud S.A.', modalidad 'Siniestros por Reaseguro Aceptado' -> el CSV final trae Monto US$=1,000, pero la celda correspondiente en el Excel fuente está vacía (sin valor, ni '-' ni 0). Es 1 sola celda de 965 revisadas (Nov 2025-Ene 2026) — no se repite en ningún otro mes/entidad/modalidad. Reportar como caso aislado, no como patrón.",,,,,
+"⚠ Anomalía detectada (APS, SPIM_0202_ERCSGF y SPIM_0203_BGCSP): signo perdido en cuentas de Resultado",,,,,
+"En al menos 3 celdas confirmadas, una cuenta de 'Resultado' que la fuente reporta en negativo (pérdida, entre paréntesis, ej. '(69)') aparece en positivo en el CSV final: FOR, 'Resultado Técnico Bruto' y 'Resultado Operacional', Abril 2026 (SPIM_0202_ERCSGF); LVI y SC-P, 'Resultados de Gestiones Anteriores'/'Resultados del Periodo o Gestión', Abril 2026 (SPIM_0203_BGCSP). NO es un problema general: se confirmó que SPIM_0201_BGCSGF (Balance General Generales/Fianzas) SÍ conserva correctamente el signo negativo para la misma cuenta [307] en otras compañías (ej. ILL -1,518,000). Parece un problema puntual de algunas celdas/compañías específicas, no una regla del pipeline — reportar cada caso, no asumir que todo 'Resultado' negativo se pierde. Nota aparte (no es anomalía, es consistente): el texto '0' explícito en la fuente se mantiene como fila en el resultado, pero solo para un subconjunto fijo de cuentas por cubo (distintas entre SPIM_0201_BGCSGF y SPIM_0203_BGCSP) — mientras que '-' (sin dato) siempre se descarta.",,,,,
