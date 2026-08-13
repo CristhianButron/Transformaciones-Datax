@@ -1,0 +1,49 @@
+Fuente,Codigo-Cubo,Nombre,Estado,T1,T2,T3,T4,T5,T6,T7,T8,T9,T10,T11,T12,T13,T14,T15,T16
+APS,S_BOAPS_44_000620,Producción Directa Neta de Anulación y Siniestros Directos por Entidad Aseguradora y Departamento,Analizado,✓,✓,✓,✓,,✓,✓,✓,✓,✓,✓,✓,,,,
+APS,S_BOAPS_44_000621,Intermediación de Corredores de Reaseguro,Analizado,✓,,✓,✓,,,✓,✓,✓,✓,,✓,,,,
+APS,S_BOSPVS46_000251,Producción y Siniestros por Modalidad y Ramo,Analizado,✓,,,✓,,,✓,✓,✓,✓,,✓,✓,,,
+APS,S_BOSPVS66_000253,Producción/Siniestros Directos por Modalidad y Ramo,Analizado,✓,,✓,✓,,,✓,✓,✓,✓,✓,✓,,,,
+APS,S_BOSPVS66_000254,Producción y Siniestros por Modalidad y Ramo y Compañía,Analizado,✓,,,✓,,,✓,✓,✓,✓,,✓,,✓,,
+APS,S_BOSPVS66_000260,Intermediación de Corredores de Seguros por Entidad Aseguradora,Analizado,,,✓,✓,,,✓,✓,✓,✓,,✓,,,,
+APS,S_BOSPVS66_000261,Intermediación de Corredores de Seguros por Modalidad y Ramo,Analizado,,,✓,✓,,,✓,✓,✓,✓,,✓,,,,
+APS,SPIM_0166_PSMR,Producción y Siniestros por Modalidad y Ramo,Pendiente,,,,,,,,,,,,,,,,
+APS,SPIM_0170_PSCS,Producción y Siniestros por Tipo de Seguros y Compañía - Detallado (Acumulados),Analizado,,,✓,✓,,,✓,,✓,✓,,✓,,,,✓
+APS,SPIM_0201_BGCSGF,Balance General Entidades de Seguros Generales y Fianzas,Analizado,,,✓,✓,,,✓,✓,✓,✓,,✓,,,,
+APS,SPIM_0202_ERCSGF,Estado de Resultados Entidades de Seguros Generales y Fianzas,Analizado,,,✓,✓,,,✓,✓,✓,✓,,✓,,,,✓
+APS,SPIM_0203_BGCSP,Balance General Entidades de Seguros de Personas,Analizado,,,✓,✓,,,✓,✓,✓,✓,,✓,,,,
+APS,SPIM_0204_ERCSP,Estado de Resultados Entidades de Seguros de Personas,Analizado,,,✓,✓,,,✓,✓,✓,✓,,✓,,,,✓
+APS,S_BOAPS_66_000655; SPIM_0027_VS,Penetración del SOAT a Nivel Nacional Por Departamento,Pendiente,,,,,,,,,,,,,,,,
+ADA,S_BOADA_11_000730,Precios Referenciales del Pollo,Analizado,✓,✓,,✓,,,✓,✓,✓,✓,,,,,✓,
+ADUANA,S_BO_AN_44_000344,Recaudación Ordinaria Según Impuesto,Analizado,,✓,,✓,,,✓,,,✓,,✓,,,,
+ADUANA,S_BO_AN_44_000345,Recaudación Ordinaria Según Tipo de Pago,Pendiente,,,,,,,,,,,,,,,,
+ADUANA,S_BO_AN_44_000346,Recaudación Ordinaria Según Impuesto,Analizado,,✓,✓,✓,,,✓,,,✓,,✓,,,,
+ADUANA,S_BO_AN_44_000347,Recaudación Liberada Según Acuerdo Preferencial y Disposición Liberatoria,Analizado,,✓,✓,✓,,,✓,,,✓,,✓,,,,✓
+ADUANA,S_BO_AN_44_000348,Recaudación Ordinaria Según Departamento,Analizado,,✓,✓,✓,,,✓,,,✓,,✓,,,,
+ADUANA,S_BO_AN_44_000349,Recaudación Ordinaria Según Gerencia Regional y Administración de Aduana,Analizado,,✓,✓,✓,,,✓,,,✓,,✓,,,,✓
+ADUANA,S_BO_AN_44_000350,Recaudación Ordinaria Según Tipo de Administración Aduanera,Analizado,,✓,✓,✓,,,✓,,,✓,,✓,,,,✓
+ADUANA,S_BO_AN_44_000351,Recaudación por Importación Según Principal Capítulo de la NANDINA,Analizado,,✓,✓,✓,,,✓,✓,,✓,,✓,,,,
+BBV,S_BOBBV_11_000581,Fondos de Inversión Cartera Participantes y Tasas de Rendimiento,Analizado,✓,✓,✓,✓,,,✓,,✓,✓,,✓,,,,
+BBV,S_BOBBV_11_000582,Acciones Inscritas en Bolsa,Analizado,✓,,,✓,,,✓,,✓,✓,,,,,,
+BBV,S_BOBBV_11_000583,Tasas de Rendimiento Rango de Plazos en Días,Analizado,✓,,✓,,,,✓,,✓,✓,,,,,,✓
+BBV,S_BOBBV_12_000367,Montos Negociados en Bolsa - Resumen Diario,Analizado,✓,✓,✓,✓,,,✓,✓,✓,✓,,,,,,✓
+BBV,S_BOBBV_12_000368,Montos Negociados en Bolsa - Resumen Mensual/Anual,Analizado,✓,,✓,✓,,,✓,,,✓,,,,,,
+BBV,S_BOBBV_44_000413,Montos Negociados en Bolsa Consolidado,Pendiente,,,,,,,,,,,,,,,,
+BCB,S_BOBCB_22_000687,Resultado de Subasta Bonos - BCB,Analizado,✓,✓,✓,✓,✓,,✓,,✓,✓,,✓,,,✓,
+BOLCEREALES,S_ARBCER11_000609,Precios Índices y/o FOB Mínimos (Ministerio de Agroindustria),Analizado,✓,,,✓,,,✓,,✓,✓,,,,✓,,✓
+MDRyT,S_BOMDRT11_000610,Precio Mayorista. Prod. Agropecuarios,Analizado,✓,,,✓,,,✓,,✓,,,,,,,✓
+MHE,S_BOMHE_12_000469,Precios Internacionales de Hidrocarburos,Analizado,✓,,✓,✓,,,✓,✓,,✓,,,,,✓,
+MHE,S_BOMHE_44_000714,Precios de Gas Natural en el Mercado Interno (/Mpc),Analizado,,,✓,✓,,,✓,✓,,✓,,,,,✓,✓
+MULTIPLES,S_MUMUL_11_000684,Tasas de Interés Diarios Euribor / Prime Rate,Analizado,✓,,✓,,,,✓,✓,✓,,,,,,,✓
+MMYM,S_BOMMYM44_000667,Cotización de Minerales,Pendiente,,,,,,,,,,,,,,,,
+FINRURAL,S_BOFINR44_000394,Clasificación de Cartera por Destino del Crédito - IFD,Analizado,,,✓,✓,,,✓,✓,✓,✓,,✓,,,,
+FINRURAL,S_BOFINR44_000396,Estratificación de Cartera por Monto del Crédito - IFD,Analizado,,,✓,✓,,,✓,✓,✓,✓,,✓,,,,✓
+FINRURAL,S_BOFINR44_000433,Cobertura de la Red de Puntos de Atención y Empleados - IFD,Pendiente,,,,,,,,,,,,,,,,
+FINRURAL,S_BOFINR44_000435,Tasas de Interés según Moneda y Tipo de Crédito - IFD,Analizado,,✓,✓,,✓,,✓,,✓,✓,,,,,,
+FINRURAL,S_BOFINR44_00387,Indicadores Financieros - IFD,Analizado,,,✓,,,,✓,,✓,✓,,,,,,✓
+FINRURAL,S_BOFINR44_00388,Calificación de Cartera por Institución - IFD,Analizado,,,✓,✓,,,✓,,✓,✓,,✓,,,,
+FINRURAL,S_BOFINR44_00389,Distribución de Cartera por Tipo de Crédito - IFD,Analizado,✓,,✓,✓,,,✓,,✓,✓,,✓,,,,
+FINRURAL,SPIM_15001_ECI,Estado de Cartera por Institución y Zona - IFD,Analizado,,,✓,✓,,,✓,,✓,✓,,,,,,✓
+FINRURAL,SPIM_15002_NCI,Número de Clientes por Institución y Departamento - IFD 01,Analizado,,,✓,,,,✓,,✓,✓,,,,,,✓
+FINRURAL,SPIM_15003_ECD,Estado de Cartera por Departamentos y Zonas - IFD,Analizado,,,✓,✓,,,✓,,✓,✓,,✓,,,,
+FINRURAL,SPIM_15004_NCD,Número de Clientes por Institución y Departamento - IFD 02,Analizado,,,✓,,,,✓,✓,✓,✓,,,,,,
+,,Total de cubos donde se confirma cada transformación:,,17,13,34,35,2,1,41,20,31,39,2,26,1,2,4,16
