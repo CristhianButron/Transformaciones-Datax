@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: aps_raw
+    schema: public
+    tables:
+      - name: data_d_bo_000000447_01
+      - name: data_d_bo_000000447_02
+      - name: data_d_bo_000000447_03
+      - name: data_d_bo_000000447_04
+      - name: data_d_bo_000000447_05
+      - name: data_d_bo_000000447_06
+      - name: data_d_bo_000000447_07
+      - name: data_d_bo_000000447_08
+      - name: data_d_bo_000000447_09
+      - name: data_d_bo_000000447_10
+      - name: data_d_bo_000000447_11
+      - name: data_d_bo_000000447_12
+      - name: data_d_bo_000000447_13
+      - name: data_d_bo_000000447_14
+      - name: data_d_bo_000000447_15
+      - name: data_d_bo_000000447_16
+      - name: data_d_bo_000000447_17
+      - name: data_d_bo_000000447_18

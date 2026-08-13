@@ -1,0 +1,12 @@
+
+    
+    
+    truncate table "copia"."public"."cat_compania";
+    -- dbt seed --
+    
+          insert into "copia"."public"."cat_compania" ("raw_code", "clean_code") values
+          (%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s),(%s,%s)
+      
+
+;
+  
