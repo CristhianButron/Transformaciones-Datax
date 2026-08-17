@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: aps_raw_251
+    schema: public
+    tables:
+      # ⚠ Nombre de tabla inferido por convención con el cubo 158
+      # (aps_raw.data_d_bo_000000447_XX) a partir del report_code real
+      # D_BO_000000447_25 del Plan Maestro. Confirmar el nombre exacto
+      # contra la base real antes de correr en producción.
+      - name: data_d_bo_000000447_25

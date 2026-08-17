@@ -9,8 +9,8 @@ su propia rama, etiquetada con el mismo código que usa ese informe.
 
 | Rama | Tag | Tecnología | Qué prueba |
 |---|---|---|---|
-| [`ejemplo1`](../../tree/ejemplo1) *(esta rama)* | **[DBT-1]** | dbt Core | Cubo 158 real (T1,T3,T4,T6,T7,T8,T9,T10,T11,T12) — transformación estructural y numérica |
-| [`dbt-2`](../../tree/dbt-2) | **[DBT-2]** | dbt Core | T13/T14 — selección y reclasificación de "hechos" (pendiente de CSV real) |
+| [`ejemplo1`](../../tree/ejemplo1) | **[DBT-1]** | dbt Core | Cubo 158 real (T1,T3,T4,T6,T7,T8,T9,T10,T11,T12) — transformación estructural y numérica |
+| [`dbt-2`](../../tree/dbt-2) *(esta rama)* | **[DBT-2]** | dbt Core | Cubo 251 real (T1,T4,T7,T9,T13) — reclasificación de componentes con signo, 99,5% validado contra CSV real |
 | [`dbt-3`](../../tree/dbt-3) | **[DBT-3]** | dbt Core | T16 — catálogos y jerarquías (pendiente de CSV real) |
 | [`sqlmesh-1`](../../tree/sqlmesh-1) | **[SM-1]** | SQLMesh | Réplica funcional del cubo 158 (mismo caso que DBT-1) |
 | [`sqlmesh-2`](../../tree/sqlmesh-2) | **[SM-2]** | SQLMesh | Flujo de ambientes virtuales y plan/apply sobre el cubo 158 |
@@ -20,14 +20,18 @@ Cada rama tiene su propio README con los pasos exactos para correrla. El
 resultado de esta comparación está documentado en el informe
 `Hito 2 - Evaluación Técnica y Selección de la Tecnología de Procesamiento`.
 
-## Esta rama: [DBT-2] — dbt Core, caso T13/T14 (⏳ pendiente de datos reales)
+## Esta rama: [DBT-2] — dbt Core, cubo 251 (T13), validado contra datos reales
 
 Parte de `dbt_transformaciones/` (el mismo proyecto y los mismos macros
 genéricos que `ejemplo1` [DBT-1] — ver ese README para el detalle de cada
 macro, cómo correrlo paso a paso y cómo agregar un cubo nuevo).
 
-Esta rama en particular está reservada para la prueba T13/T14 (selección y
-reclasificación de "hechos") y está **pendiente de que lleguen datos
-reales** — ver
-[`dbt_transformaciones/models/_pendiente_dbt2_t13_t14/README.md`](dbt_transformaciones/models/_pendiente_dbt2_t13_t14/README.md)
-para el detalle de qué falta y cómo completarla.
+Esta rama en particular prueba T13 (reclasificación de componentes con
+signo: Directo/Reaseguro Aceptado/Reaseguro Cedido) sobre el cubo real
+`S_BOSPVS46_000251` (CSV 207), con tabla fuente real y CSV final real —
+**1.230 de 1.236 filas (99,5%) coinciden exactas** contra el resultado
+oficial. También agrega T9 con llave compuesta (catálogo de ramo que
+depende de la modalidad) y T4 con tasa de cambio variable por mes,
+derivada del propio CSV real. Ver
+[`dbt_transformaciones/models/cubo_251/README.md`](dbt_transformaciones/models/cubo_251/README.md)
+para el detalle completo de qué se encontró y cómo se validó.

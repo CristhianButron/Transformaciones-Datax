@@ -30,3 +30,19 @@
 {{ tipo_join }} join {{ catalogo_relation }} as {{ alias }}
     on {{ alias }}.{{ columna_catalogo_raw }} = {{ columna_izquierda }}
 {%- endmacro %}
+
+{#
+  t9_join_catalogo_compuesto: igual que t9_join_catalogo, pero para
+  catálogos cuya llave no es una sola columna (ej. un mismo valor de ramo
+  se traduce distinto según la modalidad — caso confirmado con datos
+  reales en S_BOSPVS46_000251: "Salud o Enfermedad" -> "Salud o Enfermedad"
+  bajo Seguros Generales, pero -> "Salud o enfermedad" bajo Seguros de
+  Personas/Servicios de Prepago).
+
+  llaves: lista de pares [columna_izquierda, columna_catalogo] a unir con AND,
+      ej. [['d.modalidad', 'raw_modalidad'], ['d.ramo', 'raw_ramo']].
+#}
+{% macro t9_join_catalogo_compuesto(catalogo_relation, alias, llaves, tipo_join='left') %}
+{{ tipo_join }} join {{ catalogo_relation }} as {{ alias }}
+    on {% for izq, cat in llaves %}{{ alias }}.{{ cat }} = {{ izq }}{{ ' and ' if not loop.last }}{% endfor %}
+{%- endmacro %}

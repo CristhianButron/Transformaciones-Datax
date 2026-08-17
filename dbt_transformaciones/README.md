@@ -1,13 +1,15 @@
 # [DBT-2] dbt_transformaciones — motor genérico de transformaciones
 
 > **Prueba DBT-2** del informe Hito 2 (Evaluación Técnica y Selección de la
-> Tecnología de Procesamiento). Reservada para el escenario "T13/T14 —
-> selección y reclasificación de hechos" — **⏳ pendiente de datos reales**,
-> ver [`models/_pendiente_dbt2_t13_t14/README.md`](models/_pendiente_dbt2_t13_t14/README.md).
-> El resto de este README (macros, cómo correrlo, cómo agregar un cubo) es
-> el mismo proyecto que `ejemplo1` [DBT-1] — no se duplicó. Ver también
-> `dbt-3` [DBT-3], `sqlmesh-1` [SM-1], `sqlmesh-2` [SM-2] y `hop-1` [HOP-1]
-> para el resto de las pruebas comparadas en ese informe.
+> Tecnología de Procesamiento). Escenario "T13 — reclasificación de
+> componentes con signo", cubo real `S_BOSPVS46_000251` (CSV 207) — **✅
+> validada con CSV y tabla fuente reales**, 99,5% de coincidencia exacta.
+> Ver [`models/cubo_251/README.md`](models/cubo_251/README.md) para el
+> detalle completo. El resto de este README (macros, cómo correrlo, cómo
+> agregar un cubo) es el mismo proyecto que `ejemplo1` [DBT-1] — no se
+> duplicó. Ver también `dbt-3` [DBT-3], `sqlmesh-1` [SM-1], `sqlmesh-2`
+> [SM-2] y `hop-1` [HOP-1] para el resto de las pruebas comparadas en ese
+> informe.
 
 Este proyecto dbt Core reemplaza el enfoque original con SQL de negocio
 reescrito a mano por cada cubo (esa primera versión hardcodeada del cubo
