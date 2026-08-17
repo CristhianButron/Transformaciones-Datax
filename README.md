@@ -20,13 +20,14 @@ Cada rama tiene su propio README con los pasos exactos para correrla. El
 resultado de esta comparación está documentado en el informe
 `Hito 2 - Evaluación Técnica y Selección de la Tecnología de Procesamiento`.
 
-## Esta rama: [DBT-1] — dbt Core, motor genérico de transformaciones
+## Esta rama: [DBT-2] — dbt Core, caso T13/T14 (⏳ pendiente de datos reales)
 
-El proyecto es [`dbt_transformaciones/`](dbt_transformaciones/), un
-proyecto dbt Core cuya lógica de transformación (T1–T16 del
-`Diccionario_de_Transformaciones.xlsx`) está escrita **una sola vez** como
-macros genéricos y reutilizables (`macros/transformaciones/`). Agregar un
-cubo nuevo no requiere reescribir SQL de negocio (CASE de renombrado, LAG de
-desacumulación, JOIN de catálogo) — solo declarar qué macros usa y con qué
-parámetros. Ver el README de esa carpeta para el detalle de cada macro,
-cómo correrlo paso a paso y cómo agregar un cubo nuevo.
+Parte de `dbt_transformaciones/` (el mismo proyecto y los mismos macros
+genéricos que `ejemplo1` [DBT-1] — ver ese README para el detalle de cada
+macro, cómo correrlo paso a paso y cómo agregar un cubo nuevo).
+
+Esta rama en particular está reservada para la prueba T13/T14 (selección y
+reclasificación de "hechos") y está **pendiente de que lleguen datos
+reales** — ver
+[`dbt_transformaciones/models/_pendiente_dbt2_t13_t14/README.md`](dbt_transformaciones/models/_pendiente_dbt2_t13_t14/README.md)
+para el detalle de qué falta y cómo completarla.

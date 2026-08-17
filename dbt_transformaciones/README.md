@@ -1,9 +1,11 @@
-# [DBT-1] dbt_transformaciones — motor genérico de transformaciones
+# [DBT-2] dbt_transformaciones — motor genérico de transformaciones
 
-> **Prueba DBT-1** del informe Hito 2 (Evaluación Técnica y Selección de la
-> Tecnología de Procesamiento). Cubre el escenario "T2/T3/T4/T12 —
-> transformación estructural y numérica" con datos reales del cubo 158
-> (`S_BOAPS_44_000620`, CSV 158). Ver también las ramas `dbt-2` [DBT-2],
+> **Prueba DBT-2** del informe Hito 2 (Evaluación Técnica y Selección de la
+> Tecnología de Procesamiento). Reservada para el escenario "T13/T14 —
+> selección y reclasificación de hechos" — **⏳ pendiente de datos reales**,
+> ver [`models/_pendiente_dbt2_t13_t14/README.md`](models/_pendiente_dbt2_t13_t14/README.md).
+> El resto de este README (macros, cómo correrlo, cómo agregar un cubo) es
+> el mismo proyecto que `ejemplo1` [DBT-1] — no se duplicó. Ver también
 > `dbt-3` [DBT-3], `sqlmesh-1` [SM-1], `sqlmesh-2` [SM-2] y `hop-1` [HOP-1]
 > para el resto de las pruebas comparadas en ese informe.
 
