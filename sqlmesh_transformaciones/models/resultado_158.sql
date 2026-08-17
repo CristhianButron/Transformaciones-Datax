@@ -25,8 +25,11 @@ with con_catalogo as (
         d.fecha,
         d.valor_usd_mensual,
 
-        -- T4: conversión de moneda, Bs = USD x 6.86
-        round(d.valor_usd_mensual * 6.86, 2) as valor_bs_mensual
+        -- T4: conversión de moneda. Cambio de prueba para SM-2: se sube la
+        -- tasa de 6.86 a 6.96 (hipotético) para demostrar el flujo
+        -- plan/apply — este cambio se previsualiza en el ambiente "dev"
+        -- antes de promoverlo a "prod" (ver README de esta rama).
+        round(d.valor_usd_mensual * 6.96, 2) as valor_bs_mensual
 
     from sqlmesh_cubo158.int_cubo_158_desacumulado d
     -- T9 + T16: catálogo de compañía (reemplaza el código y agrega tipo_compania)

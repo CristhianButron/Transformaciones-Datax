@@ -1,99 +1,116 @@
-# [SM-1] sqlmesh_transformaciones — réplica funcional del cubo 158 en SQLMesh
+# [SM-2] sqlmesh_transformaciones — ambientes virtuales y flujo plan/apply
 
-**Prueba SM-1** del informe Hito 2 (Evaluación Técnica y Selección de la
-Tecnología de Procesamiento): mismo caso que `ejemplo1` [DBT-1] — el cubo
-real `S_BOAPS_44_000620` (CSV 158) — pero implementado en
-[SQLMesh](https://sqlmesh.readthedocs.io/) en vez de dbt Core, para poder
-comparar ambas tecnologías sobre el mismo problema real.
+**Prueba SM-2** del informe Hito 2: mismo proyecto que `sqlmesh-1` [SM-1]
+(réplica del cubo 158), pero el foco de esta prueba es específicamente el
+diferenciador que el informe le atribuye a SQLMesh en la sección 3.2:
+**ambientes virtuales aislados y flujo plan → apply**, algo que dbt Core
+no tiene de forma nativa.
 
-Ver también `dbt-2` [DBT-2], `dbt-3` [DBT-3], `ejemplo1` [DBT-1],
-`sqlmesh-2` [SM-2] (ambientes y plan/apply) y `hop-1` [HOP-1].
+Ver también `ejemplo1` [DBT-1], `dbt-2` [DBT-2], `dbt-3` [DBT-3],
+`sqlmesh-1` [SM-1] y `hop-1` [HOP-1].
 
-## Qué se replicó
+## Qué se probó (ejecutado de verdad, no solo descrito)
 
-Los mismos 3 pasos que `ejemplo1`/`dbt_transformaciones/models/cubo_158/`:
-`stg_cubo_158` → `int_cubo_158_desacumulado` → `resultado_158`, con las
-mismas transformaciones (T1, T2, T4, T6, T7, T8, T9, T11, T16) y las
-mismas columnas/orden de salida.
+Escenario: la tasa de cambio USD→Bs sube de 6.86 a 6.96 (hipotético).
+Se quiere probar el impacto de ese cambio **sin tocar producción**, y
+recién promoverlo cuando el resultado se validó.
 
-Diferencia deliberada frente a dbt: acá la unión de las 18 tablas fuente
-(T3) se escribió explícita, en vez de con un macro genérico reutilizable
-como `t3_union_fuentes` de dbt — SQLMesh también soporta macros
-Python/SQL propios para este mismo patrón, pero para esta prueba puntual
-se priorizó comparar el modelo de ejecución (planes, ambientes, motor)
-antes que reconstruir toda la librería de macros T1-T16. Ver la sección
-correspondiente del informe Hito 2 para la discusión de esta diferencia.
+1. **Estado inicial en `prod`** con la tasa vieja (6.86):
+   ```
+   sqlmesh plan --auto-apply
+   ```
+   `resultado_158` en el schema `sqlmesh_cubo158` (prod) queda con
+   Producción Bs = 6860.00 para una fila de 1000 USD.
 
-## Validación
+2. **Se edita el modelo** `models/resultado_158.sql`, tasa 6.86 → 6.96.
 
-Se corrió `sqlmesh plan dev --auto-apply` contra una base Postgres real,
-con las 18 tablas fuente y las mismas filas sintéticas de prueba usadas
-para validar `ejemplo1` [DBT-1] (departamento en mayúsculas mezcladas,
-código de compañía con espacios, catálogo de compañía y de ramo, 3 meses
-de acumulado, y 8 departamentos distintos para probar el orden de salida).
+3. **Se previsualiza el cambio en un ambiente `dev` aislado**, sin tocar
+   `prod`:
+   ```
+   sqlmesh plan dev --auto-apply
+   ```
+   SQLMesh detectó el cambio solo (diff real de la corrida):
+   ```diff
+   -    ROUND(d.valor_usd_mensual * 6.86, 2) AS valor_bs_mensual
+   +    ROUND(d.valor_usd_mensual * 6.96, 2) AS valor_bs_mensual
+   ```
+   y **solo reconstruyó `resultado_158`** — no tocó `stg_cubo_158`,
+   `int_cubo_158_desacumulado` ni los catálogos, porque el resto del DAG
+   no cambió. Quedó en el schema `sqlmesh_cubo158__dev`.
 
-**Resultado: los 13 registros de `resultado_158` coinciden exactamente
-(mismas columnas, mismos valores, mismo orden) con lo que produce dbt
-en `ejemplo1` [DBT-1]** sobre el mismo dataset de prueba — confirma
-paridad funcional entre ambas tecnologías para este caso.
+4. **Verificación de aislamiento real** (misma fila, mismo momento, dos
+   schemas distintos):
+
+   | Ambiente | Schema | Producción US$ | Producción Bs |
+   |---|---|---|---|
+   | `prod` (sin el cambio) | `sqlmesh_cubo158` | 1000 | **6860.00** |
+   | `dev` (con el cambio) | `sqlmesh_cubo158__dev` | 1000 | **6960.00** |
+
+   `prod` y `dev` conviven en la misma base con datos distintos al mismo
+   tiempo — nadie que esté consultando `sqlmesh_cubo158.resultado_158`
+   ve el cambio hasta que se promueve.
+
+5. **`sqlmesh environments`** confirma los dos ambientes activos, con
+   `dev` marcado para expirar solo (limpieza automática) y `prod` sin
+   expiración:
+   ```
+   prod - No Expiry
+   dev - 2026-08-24 00:00:00
+   ```
+
+6. **Promoción a producción**, una vez validado el cambio en `dev`:
+   ```
+   sqlmesh plan --auto-apply
+   ```
+   SQLMesh mostró el mismo diff sobre `prod` y hay que fijarse en esta
+   línea del log real de la corrida:
+   ```
+   SKIP: No physical layer updates to perform
+   ```
+   — es decir, **no volvió a calcular nada**: reutilizó la tabla que ya
+   había construido y validado en `dev`, y promovió el ambiente a `prod`
+   solo repuntando la capa virtual. `resultado_158` en `prod` pasó a
+   6960.00 sin recomputar.
+
+## Por qué importa esto para el proyecto DTA
+
+dbt Core puede lograr algo similar con schemas de desarrollo separados
+por `target`/`profile` y `dbt build --target dev`, pero es una convención
+que arma el equipo, no un concepto de primera clase del framework. En
+SQLMesh, "ambiente" es un concepto nativo: el mismo comando (`sqlmesh
+plan <env>`) crea/actualiza cualquier ambiente aislado, calcula solo lo
+que cambió, y promoverlo a producción no repite trabajo si ya se validó
+en otro ambiente. Es la razón por la que el informe Hito 2 (sección 5,
+matriz de evaluación) le da a SQLMesh el puntaje más alto en "Control de
+cambios, preview y versionado".
+
+Por qué esto solo no cambia la recomendación final del informe: ver
+sección 6 y 11 del Hito 2 — el resto del proyecto (catálogo T1-T16 amplio,
+reutilización vía macros, ecosistema) sigue pesando a favor de dbt Core.
 
 ## Cómo correrlo (paso a paso, Windows / PowerShell)
 
-1. **Instalar SQLMesh** (requiere Python; el adaptador de Postgres
-   necesita `psycopg2`):
-   ```powershell
-   pip install psycopg2-binary
-   pip install sqlmesh
-   sqlmesh --version
-   ```
-
-2. **Pararse en la carpeta del proyecto:**
-   ```powershell
-   cd Transformaciones-Datax\sqlmesh_transformaciones
-   ```
-
-3. **Configurar la conexión.** A diferencia de dbt (que usa un
-   `profiles.yml` en la carpeta de usuario, fuera del repo), SQLMesh lee
-   la conexión de `config.yaml` **dentro** del proyecto — por eso este
-   archivo trae valores de ejemplo (`TU_HOST`, `TU_USUARIO`, etc.) que hay
-   que reemplazar por los datos reales de Postgres antes de correrlo, o
-   bien duplicar el archivo como `config.local.yaml` con las credenciales
-   reales (ese nombre ya está en `.gitignore`, no se sube a git) y correr
-   `sqlmesh` apuntando a él con `-p .` una vez renombrado a `config.yaml`
-   localmente.
-   ```powershell
-   notepad config.yaml
-   ```
-
-4. **Generar el plan** (SQLMesh compara el estado local contra la base y
-   muestra qué va a crear/cambiar antes de aplicar nada — este es el
-   flujo "plan → apply" que dbt no tiene de forma nativa):
-   ```powershell
-   sqlmesh plan
-   ```
-   Va a pedir confirmación para aplicar los cambios (a diferencia de
-   `dbt run`, que ejecuta directo). Para aplicar sin que pregunte:
-   ```powershell
-   sqlmesh plan --auto-apply
-   ```
-
-5. **Ver el resultado:** queda en la tabla `sqlmesh_cubo158.resultado_158`
-   (en el ambiente `prod`; si corriste `sqlmesh plan dev` en cambio de
-   `sqlmesh plan`, va a estar en el schema `sqlmesh_cubo158__dev`, ver
-   siguiente sección).
-
-## Sobre el flujo plan/apply y los "ambientes" (preview de SM-2)
-
-A diferencia de `dbt run` (que aplica los cambios directo al schema de
-producción configurado), SQLMesh separa explícitamente **plan** (mostrar
-qué va a cambiar) de **apply** (aplicarlo), y permite mandar ese plan a un
-ambiente aislado antes de tocar producción:
+Mismos pasos 1-3 que `sqlmesh-1` [SM-1] (instalar, `config.yaml`,
+pararse en la carpeta `sqlmesh_transformaciones`). Para reproducir esta
+prueba puntual:
 
 ```powershell
-sqlmesh plan dev --auto-apply     # crea/actualiza un ambiente de prueba "dev"
-sqlmesh plan                       # compara contra "prod" y aplica ahí
-```
+# 1. Estado inicial en prod
+sqlmesh plan --auto-apply
 
-La rama `sqlmesh-2` [SM-2] profundiza en este flujo (por qué es el
-diferenciador principal de SQLMesh frente a dbt, según la sección 3.2 del
-informe Hito 2).
+# 2. Editar models/resultado_158.sql (cambiar la tasa 6.86 por otro valor,
+#    ya viene así en esta rama para que puedas probarlo directo)
+
+# 3. Previsualizar en un ambiente aislado
+sqlmesh plan dev --auto-apply
+
+# 4. Comparar los dos schemas en tu cliente de Postgres:
+#      select * from sqlmesh_cubo158.resultado_158;       -- prod, sin el cambio
+#      select * from sqlmesh_cubo158__dev.resultado_158;  -- dev, con el cambio
+
+# 5. Ver los ambientes activos
+sqlmesh environments
+
+# 6. Promover el cambio a producción
+sqlmesh plan --auto-apply
+```

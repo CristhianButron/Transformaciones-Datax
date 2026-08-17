@@ -12,19 +12,21 @@ su propia rama, etiquetada con el mismo código que usa ese informe.
 | [`ejemplo1`](../../tree/ejemplo1) | **[DBT-1]** | dbt Core | Cubo 158 real (T1,T3,T4,T6,T7,T8,T9,T10,T11,T12) — transformación estructural y numérica |
 | [`dbt-2`](../../tree/dbt-2) | **[DBT-2]** | dbt Core | T13/T14 — selección y reclasificación de "hechos" (pendiente de CSV real) |
 | [`dbt-3`](../../tree/dbt-3) | **[DBT-3]** | dbt Core | T16 — catálogos y jerarquías (pendiente de CSV real) |
-| [`sqlmesh-1`](../../tree/sqlmesh-1) *(esta rama)* | **[SM-1]** | SQLMesh | Réplica funcional del cubo 158 (mismo caso que DBT-1) |
-| [`sqlmesh-2`](../../tree/sqlmesh-2) | **[SM-2]** | SQLMesh | Flujo de ambientes virtuales y plan/apply sobre el cubo 158 |
+| [`sqlmesh-1`](../../tree/sqlmesh-1) | **[SM-1]** | SQLMesh | Réplica funcional del cubo 158 (mismo caso que DBT-1) |
+| [`sqlmesh-2`](../../tree/sqlmesh-2) *(esta rama)* | **[SM-2]** | SQLMesh | Flujo de ambientes virtuales y plan/apply sobre el cubo 158 |
 | [`hop-1`](../../tree/hop-1) | **[HOP-1]** | Apache Hop | Pipeline visual para un subconjunto del cubo 158 |
 
 Cada rama tiene su propio README con los pasos exactos para correrla. El
 resultado de esta comparación está documentado en el informe
 `Hito 2 - Evaluación Técnica y Selección de la Tecnología de Procesamiento`.
 
-## Esta rama: [SM-1] — SQLMesh, réplica funcional del cubo 158
+## Esta rama: [SM-2] — SQLMesh, ambientes virtuales y flujo plan/apply
 
-El proyecto es [`sqlmesh_transformaciones/`](sqlmesh_transformaciones/):
-la misma lógica de negocio del cubo 158 que `ejemplo1` [DBT-1], pero
-implementada en SQLMesh en vez de dbt Core, para comparar ambas
-tecnologías sobre el mismo problema real. Ver el README de esa carpeta
-para el detalle de qué se replicó, cómo se validó (paridad exacta con
-dbt sobre el mismo dataset de prueba) y cómo correrlo paso a paso.
+El proyecto es [`sqlmesh_transformaciones/`](sqlmesh_transformaciones/)
+(mismo código base que `sqlmesh-1` [SM-1]), pero esta rama documenta y
+ejercita de verdad el diferenciador principal de SQLMesh frente a dbt
+Core: un cambio (tasa de cambio 6.86 → 6.96) se previsualiza en un
+ambiente `dev` aislado, se verifica que `prod` no se ve afectado, y recién
+después se promueve — sin recalcular lo que ya se validó en `dev`. Ver el
+README de esa carpeta para el detalle paso a paso con la evidencia real
+de la corrida (diffs, schemas, valores).
