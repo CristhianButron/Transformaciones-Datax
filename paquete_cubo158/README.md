@@ -91,13 +91,3 @@ en el Diccionario: T1, T3, T4, T6, T7, T8, T9, T10, T11.
    NULL hasta el resultado final. Agregar un `WHERE valor IS NOT NULL` en
    `stg_produccion_siniestros.sql` si hace falta.
 
-## Qué se probó y qué no
-
-✅ Probado (sintaxis + lógica) contra una base de prueba con 18 tablas (17 vacías +
-la real `_01` que me pasaste, más algunas filas sintéticas agregadas a mano para
-poder probar el T6 y el T11).
-
-❌ NO probado contra el volumen real completo (las 18 tablas con todos tus datos) —
-esto lo tenés que correr vos en tu entorno real siguiendo los pasos de arriba.
-
-❌ NO validado contra un CSV 158 de referencia (no lo tenían disponible).
