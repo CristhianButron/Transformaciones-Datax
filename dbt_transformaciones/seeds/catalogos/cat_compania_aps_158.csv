@@ -1,20 +1,20 @@
-raw_code,clean_code
-ALI-G,ALI
-ALI-P,ALI-V
-BIS-G,BIS
-BUP-P,BUP-P
-CRE-G,CRI
-CRS-G,CRS-G
-CRS-P,CRS-P
-FOR-G,FOR
-FOR-P,FOR-P
-ILL-G,ILL
-LBC-G,LBC-G
-LBC-P,LBC-P
-LVI-P,LVI
-MSC-G,MSC-G
-NAL-G,NAL-G
-NAL-P,NAL-V
-SC-P,SC-P
-UNI-G,UNI-G
-UNI-P,UNI-P
+raw_code,clean_code,tipo_compania
+ALI-G,ALI,Seguros Generales y Fianzas
+ALI-P,ALI-V,Seguros de Personas
+BIS-G,BIS,Seguros Generales y Fianzas
+BUP-P,BUP-P,Seguros de Personas
+CRE-G,CRI,Seguros Generales y Fianzas
+CRS-G,CRS-G,Seguros Generales y Fianzas
+CRS-P,CRS-P,Seguros de Personas
+FOR-G,FOR,Seguros Generales y Fianzas
+FOR-P,FOR-P,Seguros de Personas
+ILL-G,ILL,Seguros Generales y Fianzas
+LBC-G,LBC-G,Seguros Generales y Fianzas
+LBC-P,LBC-P,Seguros de Personas
+LVI-P,LVI,Seguros de Personas
+MSC-G,MSC-G,Seguros Generales y Fianzas
+NAL-G,NAL-G,Seguros Generales y Fianzas
+NAL-P,NAL-V,Seguros de Personas
+SC-P,SC-P,Seguros de Personas
+UNI-G,UNI-G,Seguros Generales y Fianzas
+UNI-P,UNI-P,Seguros de Personas
