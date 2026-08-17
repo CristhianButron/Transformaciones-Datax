@@ -42,34 +42,6 @@ dbt_transformaciones/
                                  hardcodeada (ver "Cómo se validó" abajo).
 ```
 
-## Macros disponibles (uno por transformación del Diccionario)
-
-| Código | Qué hace | Macro(s) |
-|---|---|---|
-| T1 | Renombrado 1 a 1 (valor, sin catálogo) | `t1_renombrar_exacto`, `t1_renombrar_patron` |
-| T2 | Pivot (categoría → columna) | `t2_pivot_valor` |
-| T3 | Unión / concatenación de N tablas | `t3_union_fuentes` |
-| T4 | Conversión de moneda | `t4_convertir_moneda` |
-| T5 | Cálculo simple entre columnas / offset de fecha | `t5_promedio`, `t5_offset_fecha` |
-| T6 | Desacumulación (LAG dentro del ciclo) | `t6_desacumular` |
-| T7 | Descomposición de fecha | `t7_anio`, `t7_mes_numero`, `t7_mes_nombre`, `t7_dia` |
-| T8 | Normalización de texto | `t8_normalizar_texto` (modos: trim/titlecase/mayusculas/minusculas/sin_tildes_oracion) |
-| T9 | Catálogo de negocio (reemplaza) | `t9_join_catalogo` |
-| T10 | Eliminar filas (columnas: simplemente no se seleccionan) | `t10_filtro_filas_validas` |
-| T11 | Columna nueva por combinación de fuentes | sin macro propio — es T3 + T2, ver `t11_combinar.sql` |
-| T12 | Texto numérico con separador de miles + escala | `t12_parsear_numero` |
-| T13 | Reclasificación de componentes (con signo) | `t13_reclasificar_componentes`, `t13_signo_componente` |
-| T14 | Selección de un solo "hecho" | `t14_filtro_hecho` |
-| T15 | Coma decimal → punto decimal | `t15_coma_a_punto` |
-| T16 | Enriquecimiento con catálogo (agrega, no reemplaza) | `t16_join_catalogo` |
-
-Cada archivo trae en la cabecera la definición y las advertencias exactas
-de la hoja correspondiente del Diccionario (ej. T9: "los catálogos no son
-universales entre cubos"; T6: "confirmar con 3+ periodos que el dato solo
-crece"). Léelas antes de usarlos en un cubo nuevo — son las mismas
-condiciones que hay que verificar con datos reales antes de aplicar la
-transformación.
-
 ## Cómo se armó el cubo 158 con este patrón
 
 `models/cubo_158/staging/stg_cubo_158.sql` → `int_cubo_158_desacumulado.sql`
