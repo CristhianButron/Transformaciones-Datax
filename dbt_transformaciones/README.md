@@ -1,8 +1,16 @@
-# dbt_transformaciones — motor genérico de transformaciones
+# [DBT-1] dbt_transformaciones — motor genérico de transformaciones
 
-Este proyecto dbt Core reemplaza el enfoque anterior (un proyecto dbt
-distinto, con SQL de negocio reescrito a mano, por cada cubo — ver la rama
-`ejemplo1` para la versión original del cubo 158).
+> **Prueba DBT-1** del informe Hito 2 (Evaluación Técnica y Selección de la
+> Tecnología de Procesamiento). Cubre el escenario "T2/T3/T4/T12 —
+> transformación estructural y numérica" con datos reales del cubo 158
+> (`S_BOAPS_44_000620`, CSV 158). Ver también las ramas `dbt-2` [DBT-2],
+> `dbt-3` [DBT-3], `sqlmesh-1` [SM-1], `sqlmesh-2` [SM-2] y `hop-1` [HOP-1]
+> para el resto de las pruebas comparadas en ese informe.
+
+Este proyecto dbt Core reemplaza el enfoque original con SQL de negocio
+reescrito a mano por cada cubo (esa primera versión hardcodeada del cubo
+158 quedó reemplazada en esta misma rama por la versión genérica — ver el
+historial de commits de `ejemplo1` si hace falta compararlas).
 
 La idea: **la lógica de cada transformación (T1–T16 del
 `Diccionario_de_Transformaciones.xlsx`) vive UNA sola vez**, como macro
@@ -169,27 +177,65 @@ usuario las revise:**
    seguir confirmándolos con ejemplos reales, tal como pide cada hoja del
    Diccionario).
 
-## Cómo correrlo
+## Cómo correrlo (paso a paso, Windows / PowerShell)
 
-```bash
-cd dbt_transformaciones
-python -m venv .venv && source .venv/bin/activate   # o .\.venv\Scripts\Activate.ps1 en Windows
-pip install dbt-postgres
+1. **Instalar dbt** (una sola vez, requiere Python instalado):
+   ```powershell
+   pip install dbt-postgres
+   dbt --version
+   ```
 
-# ~/.dbt/profiles.yml
-# transformaciones_datax:
-#   target: dev
-#   outputs:
-#     dev:
-#       type: postgres
-#       host: TU_HOST
-#       user: TU_USUARIO
-#       password: TU_PASSWORD
-#       port: 5432
-#       dbname: TU_BASE_REAL
-#       schema: public
-#       threads: 4
+2. **Crear el archivo de conexión `profiles.yml`.** Este archivo NO va en
+   el repo (tiene tus credenciales) — vive en tu carpeta de usuario, en
+   `.dbt`, separado del proyecto:
+   ```powershell
+   mkdir $env:USERPROFILE\.dbt
+   notepad $env:USERPROFILE\.dbt\profiles.yml
+   ```
+   Pegar esto (el nombre `transformaciones_datax` tiene que calzar exacto
+   con el `profile:` de `dbt_transformaciones/dbt_project.yml`):
+   ```yaml
+   transformaciones_datax:
+     target: dev
+     outputs:
+       dev:
+         type: postgres
+         host: TU_HOST
+         user: TU_USUARIO
+         password: TU_PASSWORD
+         port: 5432
+         dbname: TU_BASE_REAL
+         schema: public
+         threads: 4
+   ```
+   Reemplazar `TU_HOST` / `TU_USUARIO` / `TU_PASSWORD` / `TU_BASE_REAL` por
+   los datos reales de Postgres. Guardar y cerrar.
 
-dbt seed
-dbt run
-```
+3. **Pararse en la carpeta del proyecto** (el `dbt_project.yml` está ahí
+   adentro, no en la raíz del repo):
+   ```powershell
+   cd Transformaciones-Datax\dbt_transformaciones
+   ```
+
+4. **Cargar los catálogos** (los CSV de `seeds/` — equivalencias de
+   compañía, ramo, y el diccionario de transformaciones versionado):
+   ```powershell
+   dbt seed
+   ```
+
+5. **Correr los modelos** (construye `stg_cubo_158` → `int_cubo_158_desacumulado`
+   → `resultado_158` en tu base):
+   ```powershell
+   dbt run
+   ```
+   Para correr solo este cubo si hay más de uno en el proyecto:
+   ```powershell
+   dbt run --select cubo_158
+   ```
+
+6. **Ver el resultado:** queda en la tabla `resultado_158` del schema que
+   pusiste en `profiles.yml` (`public` en el ejemplo de arriba).
+
+Si algo falla, los errores más comunes son "Could not find profile" (el
+`profiles.yml` no existe o el nombre no calza) y "No dbt_project.yml found"
+(no estás parado en `dbt_transformaciones`, sino en la raíz del repo).
