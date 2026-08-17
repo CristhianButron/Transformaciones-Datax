@@ -1,0 +1,24 @@
+gateways:
+  local:
+    connection:
+      type: postgres
+      host: TU_HOST
+      port: 5432
+      user: TU_USUARIO
+      password: TU_PASSWORD
+      database: TU_BASE_REAL
+
+default_gateway: local
+
+model_defaults:
+  dialect: postgres
+  start: 2024-01-01
+
+state_connection:
+  type: postgres
+  host: TU_HOST
+  port: 5432
+  user: TU_USUARIO
+  password: TU_PASSWORD
+  database: TU_BASE_REAL
+  schema: sqlmesh_state
