@@ -13,20 +13,20 @@ su propia rama, etiquetada con el mismo código que usa ese informe.
 | [`dbt-2`](../../tree/dbt-2) | **[DBT-2]** | dbt Core | T13/T14 — selección y reclasificación de "hechos" (pendiente de CSV real) |
 | [`dbt-3`](../../tree/dbt-3) | **[DBT-3]** | dbt Core | T16 — catálogos y jerarquías (pendiente de CSV real) |
 | [`sqlmesh-1`](../../tree/sqlmesh-1) | **[SM-1]** | SQLMesh | Réplica funcional del cubo 158 (mismo caso que DBT-1) |
-| [`sqlmesh-2`](../../tree/sqlmesh-2) *(esta rama)* | **[SM-2]** | SQLMesh | Flujo de ambientes virtuales y plan/apply sobre el cubo 158 |
+| [`sqlmesh-2`](../../tree/sqlmesh-2) | **[SM-2]** | SQLMesh | Flujo de ambientes virtuales y plan/apply sobre el cubo 158 |
 | [`hop-1`](../../tree/hop-1) | **[HOP-1]** | Apache Hop | Pipeline visual para un subconjunto del cubo 158 |
 
 Cada rama tiene su propio README con los pasos exactos para correrla. El
 resultado de esta comparación está documentado en el informe
 `Hito 2 - Evaluación Técnica y Selección de la Tecnología de Procesamiento`.
 
-## Esta rama: [SM-2] — SQLMesh, ambientes virtuales y flujo plan/apply
+## Esta rama: [DBT-1] — dbt Core, motor genérico de transformaciones
 
-El proyecto es [`sqlmesh_transformaciones/`](sqlmesh_transformaciones/)
-(mismo código base que `sqlmesh-1` [SM-1]), pero esta rama documenta y
-ejercita de verdad el diferenciador principal de SQLMesh frente a dbt
-Core: un cambio (tasa de cambio 6.86 → 6.96) se previsualiza en un
-ambiente `dev` aislado, se verifica que `prod` no se ve afectado, y recién
-después se promueve — sin recalcular lo que ya se validó en `dev`. Ver el
-README de esa carpeta para el detalle paso a paso con la evidencia real
-de la corrida (diffs, schemas, valores).
+El proyecto es [`dbt_transformaciones/`](dbt_transformaciones/), un
+proyecto dbt Core cuya lógica de transformación (T1–T16 del
+`Diccionario_de_Transformaciones.xlsx`) está escrita **una sola vez** como
+macros genéricos y reutilizables (`macros/transformaciones/`). Agregar un
+cubo nuevo no requiere reescribir SQL de negocio (CASE de renombrado, LAG de
+desacumulación, JOIN de catálogo) — solo declarar qué macros usa y con qué
+parámetros. Ver el README de esa carpeta para el detalle de cada macro,
+cómo correrlo paso a paso y cómo agregar un cubo nuevo.
