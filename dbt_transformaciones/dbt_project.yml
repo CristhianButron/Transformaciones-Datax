@@ -1,0 +1,26 @@
+name: 'transformaciones_datax'
+version: '1.0.0'
+config-version: 2
+profile: 'transformaciones_datax'
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+seed-paths: ["seeds"]
+target-path: "target"
+clean-targets: ["target"]
+
+seeds:
+  transformaciones_datax:
+    diccionario:
+      +schema: diccionario
+    catalogos:
+      +schema: catalogos
+
+models:
+  transformaciones_datax:
+    +materialized: view
+    cubo_158:
+      staging:
+        +materialized: view
+      marts:
+        +materialized: table
